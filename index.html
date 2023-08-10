@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>官网复刻</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./CSS/index.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="float-box" style="left: 0; top: 0; ">
+    <div class="float-img">
+      <a href="#">
+        <img src="./images/float_img_gzjsj.jpg" alt="" width="320" height="170">
+      </a>
+    </div>
+    <div class="float-box-closebtn" style="padding-top: 1px;">
+      <i>关闭</i>
+    </div>
+  </div>
+  <script>
+    let float_box = document.querySelector('.float-box')
+    let left_move = 0
+    let top_move = 0
+    let docEl = document.documentElement
+    // 设置盒子自动移动定时器
+    let float_box_moving = setInterval(function () {
+      left_move++
+      top_move++
+      if (left_move >= docEl.clientWidth - 320) {
+        left_move--
+        if (left_move <= 0) {
+          left_move++
+        }
+      }
+      if (top_move >= docEl.clientHeight - 170) {
+        top_move--
+      }
+      float_box.style.left = left_move + "px"
+      float_box.style.top = top_move + "px"
+      // console.log(docEl.clientWidth);
+    }, 100)
+    let float_img = document.querySelector('.float-img')
+    float_img.addEventListener('mouseenter', function () {
+      clearInterval(float_box_moving)
+    })
+    float_img.addEventListener('mouseleave', function () {
+      float_box_moving = setInterval(function () {
+        left_move++
+        top_move++
+        float_box.style.left = left_move + "px"
+        float_box.style.top = top_move + "px"
+        console.log(float_box.style.right);
+      }, 100)
+    })
+  </script>
+
+
+  <div class="header">
+    <div class="header-images">
+      <img src="./images/gzhu_nav_p1.jpg" alt="" style="opacity: 1;">
+    </div>
+    <div class="header-top">
+
+      <div class="header-navigation">
+        <ul>
+          <li class="nav_li"><a href="#">学校概况</a>
+            <div class="header-nav-01 ">
+              <b></b>
+              <ul>
+                <li><a href="#">学校简介</a></li>
+                <li><a href="#">现任领导</a></li>
+                <li><a href="#">学校章程</a></li>
+                <li><a href="#">校训校徽校歌</a></li>
+                <li><a href="#">校园风景</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav_li"><a href="#">组织机构</a>
+            <div class="header-nav-01">
+              <b></b>
+              <ul>
+                <li><a href="#">123</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav_li"><a href="#">师资队伍</a>
+            <div class="header-nav-01">
+              <b></b>
+              <ul>
+                <li><a href="#">123</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav_li"><a href="#">人才培养</a>
+            <div class="header-nav-01">
+              <b></b>
+              <ul>
+                <li><a href="#">123</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav_li"><a href="#">招生就业</a>
+            <div class="header-nav-01">
+              <b></b>
+              <ul>
+                <li><a href="#">123</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav_li"><a href="#">科学研究</a>
+            <div class="header-nav-01">
+              <b></b>
+              <ul>
+                <li><a href="#">123</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav_li"><a href="#">学科建设</a></li>
+          <li class="nav_li"><a href="#">人才招聘</a></li>
+          <li class="nav_li"><a href="#">合作交流</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header-button">
+      <div class="header-button-next">&gt;</div>
+      <div class="header-button-pre">&lt;</div>
+    </div>
+  </div>
+
+  <div class="side-nav">
+    <ul>
+      <li><a href="#">
+          <i>
+            <img src="./images/side_nav_p1.png" alt="">
+          </i>
+          数字广大</a></li>
+      <li><a href="#">
+          <i>
+            <img src="./images/side_nav_p1.png" alt="">
+          </i>
+          个人邮箱</a></li>
+      <li><a href="#">
+          <i>
+            <img src="./images/side_nav_p1.png" alt="">
+          </i>
+          13256
+        </a></li>
+      <li><a href="#">
+          <i>
+            <img src="./images/side_nav_p1.png" alt="">
+          </i>4654
+        </a></li>
+      <li><a href="#">
+          <i>
+            <img src="./images/side_nav_p1.png" alt="">
+          </i>4654
+        </a></li>
+      <li><a href="#">
+          <i>
+            <img src="./images/side_nav_p1.png" alt="">
+          </i>4654
+        </a></li>
+      <li><a href="#">
+          <i>
+            <img src="./images/side_nav_p1.png" alt="">
+          </i>4654
+        </a></li>
+    </ul>
+  </div>
+  <div class="main">
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+    <div class="test01">网页内容</div>
+  </div>
+  <!-- 头部js -->
+  <script>
+    const nav_data = [
+      { url: './images/gzhu_nav_p1.jpg', title: '1' },
+      { url: './images/gzhu_nav_p2.jpg', title: '2' },
+      { url: './images/gzhu_nav_p3.jpg', title: '3' },
+      { url: './images/gzhu_nav_p4.jpg', title: '4' },
+      { url: './images/gzhu_nav_p5.jpg', title: '5' }
+    ]
+    // 注册切换图片按钮点击事件
+    let i = 0
+    let header_button_next = document.querySelector('.header-button-next')
+    let header_img = document.querySelector('.header-images img')
+    header_button_next.addEventListener('click', function () {
+      header_img.style.opacity = 0
+      i++
+      if (i > 4) {
+        i = 0;
+      }
+      setTimeout(function () {
+        header_img.src = nav_data[i].url
+      }, 400)
+      setTimeout(function () {
+        header_img.style.opacity = 1
+      }, 400)
+
+    })
+    console.log(header_img);
+    // 注册头部导航悬停显示效果
+    // let header_top = document.querySelectorAll('.nav_li')
+    // console.log(header_top);
+    // for (let i = 0; i < header_top.length; i++) {
+    //   header_top[i].addEventListener('mouseenter', function () {
+    //     console.log(11);
+    //   })
+
+    // }
+  </script>
+  <!-- 侧边导航菜单js -->
+  <script>
+    let side_nav = document.querySelector('.side-nav');
+    window.addEventListener('scroll', function () {
+      let n = document.documentElement.scrollTop
+      if (n >= 250) {
+        side_nav.classList.add('side-nav-mid')
+      } else {
+        side_nav.classList.remove('side-nav-mid')
+      }
+    })
+  </script>
+</body>
+
+</html>
