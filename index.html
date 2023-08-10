@@ -28,35 +28,45 @@
     let left_move = 0
     let top_move = 0
     let docEl = document.documentElement
+    // 设置盒子撞边时反弹的辅助判断变量
+    let box_move_work_left = 1
+    let box_move_work_top = 1
     // 设置盒子自动移动定时器
-    let float_box_moving = setInterval(function () {
-      left_move++
-      top_move++
-      if (left_move >= docEl.clientWidth - 320) {
+    function box_move() {
+      if (box_move_work_left) {
+        left_move++
+      } else {
         left_move--
-        if (left_move <= 0) {
-          left_move++
-        }
       }
-      if (top_move >= docEl.clientHeight - 170) {
+      if (box_move_work_top) {
+        top_move++
+      } else {
         top_move--
+      }
+      // 窗口实时宽高 满足条件时执行
+      if ((left_move >= docEl.clientWidth - 320) && box_move_work_left == 1) {
+        box_move_work_left = 0
+      }
+      if ((left_move <= 0) && box_move_work_left == 0) {
+        box_move_work_left = 1
+      }
+      if ((top_move >= docEl.clientHeight - 190) && box_move_work_top == 1) {
+        box_move_work_top = 0
+      }
+      if ((top_move <= 0) && box_move_work_top == 0) {
+        box_move_work_top = 1
       }
       float_box.style.left = left_move + "px"
       float_box.style.top = top_move + "px"
       // console.log(docEl.clientWidth);
-    }, 100)
+    }
+    let float_box_moving = setInterval(box_move, 100)
     let float_img = document.querySelector('.float-img')
     float_img.addEventListener('mouseenter', function () {
       clearInterval(float_box_moving)
     })
     float_img.addEventListener('mouseleave', function () {
-      float_box_moving = setInterval(function () {
-        left_move++
-        top_move++
-        float_box.style.left = left_move + "px"
-        float_box.style.top = top_move + "px"
-        console.log(float_box.style.right);
-      }, 100)
+      float_box_moving = setInterval(box_move, 100)
     })
   </script>
 
@@ -69,7 +79,7 @@
 
       <div class="header-navigation">
         <ul>
-          <li class="nav_li"><a href="#">学校概况</a>
+          <li class="nav_li"><a href="http://www.gzhu.edu.cn/xxgk/xxjj.htm">学校概况</a>
             <div class="header-nav-01 ">
               <b></b>
               <ul>
@@ -85,7 +95,7 @@
             <div class="header-nav-01">
               <b></b>
               <ul>
-                <li><a href="#">123</a></li>
+                <li><a href="#">学院(部)</a></li>
               </ul>
             </div>
           </li>
@@ -135,41 +145,41 @@
 
   <div class="side-nav">
     <ul>
-      <li><a href="#">
+      <li><a href="https://webvpn.gzhu.edu.cn/" target="_blank">
           <i>
             <img src="./images/side_nav_p1.png" alt="">
           </i>
           数字广大</a></li>
-      <li><a href="#">
+      <li><a href="#" target="_blank">
           <i>
             <img src="./images/side_nav_p1.png" alt="">
           </i>
           个人邮箱</a></li>
-      <li><a href="#">
+      <li><a href="#" target="_blank">
           <i>
             <img src="./images/side_nav_p1.png" alt="">
           </i>
-          13256
+          图书馆
         </a></li>
-      <li><a href="#">
+      <li><a href="#" target="_blank">
           <i>
             <img src="./images/side_nav_p1.png" alt="">
-          </i>4654
+          </i>招标信息
         </a></li>
-      <li><a href="#">
+      <li><a href="#" target="_blank">
           <i>
             <img src="./images/side_nav_p1.png" alt="">
-          </i>4654
+          </i>热门站点
         </a></li>
-      <li><a href="#">
+      <li><a href="#" target="_blank">
           <i>
             <img src="./images/side_nav_p1.png" alt="">
-          </i>4654
+          </i>校友之窗
         </a></li>
-      <li><a href="#">
+      <li><a href="#" target="_blank">
           <i>
             <img src="./images/side_nav_p1.png" alt="">
-          </i>4654
+          </i>领导信箱
         </a></li>
     </ul>
   </div>
